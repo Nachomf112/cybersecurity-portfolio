@@ -2,7 +2,7 @@
 // data imports
 import workExperience from "@/data/Jobs.ts"
 import education from "@/data/education.ts"
-import languages from "../data/languages.ts"
+import languages from "@/data/languages"
 import hardSkills from "@/data/hardSkills"
 import softSkills from "@/data/softSkills"
 
@@ -62,12 +62,12 @@ import {ME} from '@/config';
     {/*Languages section*/}
     <div class="mb-4">
         <h2 class="text-2xl font-bold mb-4">Languages</h2>
-        <div class="flex flex-col gap-2">
-            {
-                languages.map((lang) => (
-                    lang.show ? <p>{lang.name} - {lang.level}</p> : null
-                ))
-            }
+        <div class="flex flex-col gap-2 text-n600 dark:text-n300">
+            {languages.map((lang) => (
+                <p>
+                    <span class="font-semibold">{lang.name}</span>
+                    <span class="ml-1">– {lang.level}</span>
+                </p>
+            ))}
         </div>
     </div>
-</div>

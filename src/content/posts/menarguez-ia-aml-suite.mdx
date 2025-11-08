@@ -1,0 +1,104 @@
+---
+author: "Ignacio Menárguez Fernández"
+publishDate: 2025-02-01T10:00:00Z
+title: "Menarguez-IA AML Suite: automatizando investigaciones de blanqueo"
+tags:
+  - "AML"
+  - "FastAPI"
+  - "Streamlit"
+  - "Bash"
+  - "Automation"
+description: "Suite integrada para investigaciones AML con lanzador en Bash, backend FastAPI y dashboard Streamlit."
+cover:
+  src: "./images/aml-suite-blog.png"
+  alt: "Dashboard AML con métricas de riesgo"
+---
+
+En este artículo presento **Menarguez-IA AML Suite**, una herramienta que une
+scripts en **Bash**, un backend en **FastAPI** y un **dashboard en Streamlit**
+para apoyar investigaciones de **Anti-Money Laundering (AML)**.
+
+La idea es que, con un solo comando, el analista tenga levantado:
+
+- Backend con API documentada (Swagger).
+- Dashboard web con KPIs de riesgo.
+- Scripts auxiliares para carga de datos, consultas SQL y análisis forense.
+
+---
+
+## Table of Contents
+
+1. [Por qué crear una suite AML](#por-qué-crear-una-suite-aml)  
+2. [Arquitectura general](#arquitectura-general)  
+3. [Lanzador principal en Bash](#lanzador-principal-en-bash)  
+4. [Backend FastAPI y API de riesgo](#backend-fastapi-y-api-de-riesgo)  
+5. [Dashboard AML en Streamlit](#dashboard-aml-en-streamlit)  
+6. [Casos de uso típicos](#casos-de-uso-típicos)  
+7. [Retos y aprendizajes](#retos-y-aprendizajes)  
+
+---
+
+## Por qué crear una suite AML
+
+En los ejercicios de **blanqueo de capitales** y análisis de transacciones
+me encontraba con varios problemas:
+
+- Muchos scripts sueltos (.py, .sh) sin una forma clara de lanzarlos.
+- Entornos que había que preparar a mano cada vez (dependencias, rutas…).
+- Resultados dispersos: logs, CSV, respuestas JSON, informes HTML, etc.
+
+Quería un **punto de entrada único** que:
+
+- Verificara que todo está en su sitio.
+- Levantase los servicios necesarios.
+- Me dejase listo un dashboard para seguir la investigación.
+
+De ahí nace **Menarguez-IA AML Suite**.
+
+---
+
+## Arquitectura general
+
+La suite se apoya en tres bloques principales:
+
+1. **Bash launcher (`lanzar_suite_aml.sh`)**  
+   Orquesta todo el arranque, comprueba rutas y dependencias.
+
+2. **Backend AML en FastAPI**  
+   Expone endpoints para cargar transacciones, consultar métricas,
+   obtener listas de alertas, etc.
+
+3. **Dashboard AML en Streamlit**  
+   Interfaz para el analista: KPIs, gráficas, tablas de transacciones
+   y secciones específicas para cuentas sospechosas.
+
+Además, se apoyan varios scripts Python y shell:
+
+- `main_sql.py` – consultas y agregados sobre la base de datos AML.  
+- `aml_dashboard.py` – lógica principal del dashboard.  
+- `aml_dashboard_old.py` – versión anterior conservada como referencia.  
+- `forensis.py` – utilidades forenses y exportación de evidencias.  
+- `verificador_ruta.sh` – helpers para comprobar rutas críticas.
+
+---
+
+## Lanzador principal en Bash
+
+El archivo **`lanzar_suite_aml.sh`** es el corazón operativo del proyecto.
+
+Funciones clave:
+
+- Comprobar que los scripts críticos existen y son ejecutables.
+- Crear carpetas de **logs** si no existen.
+- Instalar (o verificar) dependencias con `pip` cuando hace falta.
+- Lanzar el backend FastAPI en un puerto concreto.
+- Arrancar el dashboard Streamlit en otro puerto.
+- Mostrar un resumen final con URLs útiles, por ejemplo:
+
+  - `http://localhost:8010/docs` → Swagger de FastAPI.  
+  - `http://localhost:8501` → Streamlit AML Dashboard.
+
+De este modo, el analista solo necesita:
+
+```bash
+bash lanzar_suite_aml.sh

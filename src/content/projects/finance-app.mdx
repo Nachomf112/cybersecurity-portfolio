@@ -1,115 +1,118 @@
 ---
-title: BudgetWise App
-summary: Manage your personal finances with ease using this mobile app concept. Track your expenses, set budgets, and visualize your spending habits. Built with React Native, Expo, Clerk, Firebase, and Tailwind.
+title: "Menarguez-IA · PWA Starter"
+summary: "Progressive Web App starter deployed on Vercel for Menarguez-IA Solutions."
 tags:
-    - React Native
-    - Expo
-    - Clerk
-    - Firebase
-    - Tailwind
-startDate: 2024-04-07
-endDate: 2024-04-09
-author: John Doe
-url: https://google.com
-cover: './images/budget-wise/finance_app_concept.webp'
-ogImage: './images/budget-wise/og-finance_app.webp'
+  - HTML
+  - PWA
+  - Vercel
+  - GitHub
+startDate: 2024-04-01
+endDate: 2024-04-10
+author: "Ignacio Menárguez Fernández"
+url: "https://menarguezia-pwa.vercel.app"
+cover: "./images/menarguezia-pwa/menarguezia-pwa.png"
+ogImage: "./images/menarguezia-pwa/menarguezia-pwa.png"
 ---
 
-## Table of Contents
-1. [Overview](#overview)
-2. [Role](#role)
-3. [Problem](#problem)
-4. [Goal](#goal)
-5. [Solution](#solution)
-- [How do users manage finances currently?](#how-do-users-manage-finances-currently)
-- [What features do users value most?](#what-features-do-users-value-most)
-- [Exploring new financial management tools](#exploring-new-financial-management-tools)
-- [User Journey](#user-journey)
-6. [User Testing](#user-testing)
-7. [Challenges and Learnings](#challenges-and-learnings)
-8. [Final Thoughts](#final-thoughts)
+## 📚 Table of Contents
+
+1. [🔎 Overview](#-overview)  
+2. [👨‍💻 Role](#-role)  
+3. [❓ Problem](#-problem)  
+4. [🎯 Goal](#-goal)  
+5. [✨ Solution](#-solution)  
+6. [🧪 User Testing](#-user-testing)  
+7. [⚙️ Challenges and Learnings](#️-challenges-and-learnings)  
+8. [✅ Final Thoughts](#-final-thoughts)
 
 ---
 
-## Overview
-**BudgetWise** is a mobile application designed to help users manage their personal finances efficiently. Built using **React Native**, **Expo**, and **TypeScript**, it aims to provide a seamless experience for users to track expenses, set budgets, and visualize financial goals.
+## 🔎 Overview
 
-The app bridges the gap for individuals struggling to organize their financial habits by offering a modern and intuitive solution.
+**Menarguez-IA · PWA Starter** is a **Progressive Web App (PWA) template** created for **Menarguez-IA Solutions**.  
+It is a lightweight HTML-based starter configured to be deployed easily on **Vercel** and installed as a small web app on any device.
+
+The main idea is to have a **small, reusable base** that I can quickly adapt for IA tools, internal dashboards and landing pages.
 
 ---
 
 ## 👨‍💻 Role
-**Lead Developer** and **UI/UX Designer**
+
+I was responsible for the entire lifecycle of the project:
+
+- 🧱 Designing the PWA structure.  
+- ⚙️ Configuring the service worker and the web app manifest.  
+- 🚀 Preparing the deployment on Vercel.  
+- 📝 Documenting the template so it can be reused in future projects.
 
 ---
 
 ## ❓ Problem
-Many individuals face difficulty in:
-1. Tracking daily expenses consistently.
-2. Setting realistic budgets and sticking to them.
-3. Understanding their spending patterns due to lack of clear visualization tools.
+
+Every time I wanted to publish a **small tool or prototype**, I had to:
+
+- Start from scratch with HTML / assets.  
+- Reconfigure basic PWA pieces (manifest, service worker).  
+- Rebuild the deployment workflow.
+
+This slowed down experimentation and made it harder to ship quick IA demos or internal utilities for Menarguez-IA.
 
 ---
 
 ## 🎯 Goal
-1. Simplify the process of tracking expenses and setting budgets.
-2. Empower users to make informed financial decisions with intuitive visualizations.
-3. Increase user engagement by gamifying goal setting and achievement.
 
-![App Mockup](./images/budget-wise/finance1.webp)
+Create a **starter template** that:
+
+- Uses only **HTML + a minimal Service Worker**.  
+- Can be deployed to **Vercel** in just a few clicks.  
+- Works as the foundation for future **Menarguez-IA micro-apps and dashboards**.  
+- Is simple enough to customize in minutes.
 
 ---
 
 ## ✨ Solution
 
-### How do users manage finances currently?
-We conducted a survey of 20 individuals and found:
-- 65% use spreadsheets but find them time-consuming.
-- 25% rely on physical notes or memory.
-- 10% use financial apps but feel they are overly complicated.
+The final solution is a small but flexible **PWA skeleton**:
 
-### What features do users value most?
-Survey participants ranked the following features as most important:
-1. **Expense categorization.**
-2. **Budget-setting tools.**
-3. **Goal progress visualization.**
+- 📄 Static HTML layout ready to be extended with JavaScript or any front-end framework.  
+- 🧩 A configured **`service-worker.js`** to handle basic caching and offline support.  
+- ☁️ A simple **Vercel** setup that uses the `public` folder as the output directory.  
+- 🧱 A clean file structure so new pages or scripts can be added without breaking the setup.
 
-### Exploring new financial management tools
-We designed a dashboard that combines:
-1. **Categorized Expense Tracking:** Auto-categorizes based on transaction type.
-2. **Budget Alerts:** Real-time notifications when nearing budget limits.
-3. **Savings Gamification:** Rewards users for hitting their financial goals.
-
-![App Mockup](./images/budget-wise/fincs.webp)
-
----
-
-### User Journey
-1. **Onboarding:** Users input financial goals and monthly income during sign-up.
-2. **Expense Tracking:** Add expenses manually or sync with bank accounts.
-3. **Budget Monitoring:** Dynamic dashboards display budget status.
-4. **Goal Tracking:** Progress is visualized with charts and milestones.
+This allows me to focus on the **logic and UI** of each new idea instead of rebuilding the base every time.
 
 ---
 
 ## 🧪 User Testing
-We tested the prototype with 12 participants and discovered:
-- **Ease of Use:** 10/12 users appreciated the minimalist design.
-- **Notifications:** 8/12 felt the alerts were helpful, but some found them intrusive.
-- **Visualization:** All users loved the goal progress charts but suggested adding weekly summaries.
+
+I tested the starter in different scenarios:
+
+- 📱 Installation as a PWA on desktop and mobile.  
+- 🌐 Behaviour with slow or unstable connections.  
+- 🔁 Rapid iterations using Vercel preview deployments.
+
+These tests helped validate that:
+
+- The PWA installs correctly on supported devices.  
+- Updates are delivered without confusing the user.  
+- The template behaves consistently across environments.
 
 ---
 
 ## ⚙️ Challenges and Learnings
-1. **Real-Time Data Synchronization:** Ensuring seamless bank account integration while maintaining security was a technical hurdle.
-2. **Balancing Notifications:** Finding the right frequency for alerts to avoid overwhelming users.
-3. **Accessibility:** Testing with colorblind users led to revising the color scheme for better visibility.
+
+- 📦 **Caching rules**: tuning the service worker so assets are cached, but updates still arrive when needed.  
+- 🗂️ Understanding how Vercel serves static assets from the `public` directory.  
+- 🧰 Keeping the starter **minimal** but flexible enough to support future features (extra pages, scripts, or frameworks on top).
 
 ---
 
-## ✨ Final Thoughts
-1. **Data Security is Paramount:** Financial data requires robust encryption and secure APIs for user trust.
-2. **Iterative Design Works:** Continuous user feedback helped refine the app to meet real needs.
-3. **User Education is Key:** Some users lacked basic financial literacy, so adding educational tips and videos enhanced their experience.
+## ✅ Final Thoughts
 
----
+This PWA starter is now my **go-to base project** for small IA experiments and internal tools at **Menarguez-IA Solutions**.  
+
+It lets me:
+
+- 🚀 Launch prototypes quickly.  
+- 🧪 Test ideas without fighting with configuration.  
+- 🔁 Reuse the same structure for multiple apps, keeping deployment and PWA setup already solved.

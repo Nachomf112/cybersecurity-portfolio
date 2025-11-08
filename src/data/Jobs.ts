@@ -42,33 +42,37 @@ interface WorkExperience {
  * @property {Array<string>} goals - A list of goals or achievements within the job.
  * @property {boolean} currentJob - A flag indicating if the job is the current one.
  */
-const workExperience:WorkExperience[] = [
+const workExperience: WorkExperience[] = [
     {
-        title: "Frontend Developer",
-        startDate: "2020-03-10",
-        company: "Google Inc",
-        location: "United States",
-        description: "Developed and maintained web applications using React, NextJs, and Tailwind CSS.",
+        title: "Cybersecurity Consultant (Intern)",
+        startDate: "2025-01-01",
+        endDate: "2025-06-30",
+        company: "Platformline.es",
+        location: "Spain",
+        description:
+            "Supported the design of an Anti-Money Laundering (AML) MVP, focusing on risky transactions, alerts and KPIs.",
         goals: [
-            "Developed and maintained web applications using React, NodeJs, and MongoDB.",
-            "Worked with the team to develop and maintain web applications using React, NodeJs, and MongoDB.",
-            "Created and maintained web applications using React, NodeJs, and MongoDB.",
+            "Helped define detection rules and AML risk indicators for suspicious behaviour.",
+            "Prepared technical reports and dashboards using Python, SQL and Excel.",
+            "Collaborated with the team to review use cases and improve the AML workflow."
         ],
-        currentJob: true,
+        currentJob: false,
     },
     {
-        title: "Software Engineer",
-        startDate: "2018-03-10",
-        endDate: "2020-03-10",
-        company: "Company Name",
-        location: "United States",
-        description: "Developed and maintained web applications using React, NodeJs, and MongoDB.",
+        title: "IT / Administrative Support",
+        startDate: "2013-01-01",
+        endDate: "2024-12-31",
+        company: "Konecta BTO – Grupo Santander (Banesto)",
+        location: "Spain",
+        description:
+            "Provided technical and administrative support for banking operations and internal users.",
         goals: [
-            "Developed and maintained web applications using React, NodeJs, and MongoDB.",
-            "Worked with the team to develop and maintain web applications using React, NodeJs, and MongoDB.",
-            "Created and maintained web applications using React, NodeJs, and MongoDB.",
+            "Coordinated a remote support team for incidents and service requests.",
+            "Managed data, reports and documentation for different business units.",
+            "Improved daily workflows by standardising procedures and information."
         ],
         currentJob: false,
     },
 ];
+
 export default workExperience;

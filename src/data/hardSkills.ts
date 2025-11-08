@@ -6,25 +6,29 @@ interface HardSkill {
 
 const hardSkills: HardSkill[] = [
   {
-    name: "AstroJs",
-    description: "My favorite static site generator for building modern websites",
-    icon: "astro_dark"
+    name: "Bash & Shell scripting",
+    description:
+      "Automatización de tareas en Linux/Kali: lanzadores, verificadores de rutas y orquestación de herramientas.",
+    icon: "tools-fill",
   },
   {
-    name: "NextJs",
-    description: "My favorite React framework for building modern web apps",
-    icon: "nextjs_icon_dark"
+    name: "Kali Linux & Blue Team",
+    description:
+      "Uso diario de Kali Linux para laboratorios, análisis de logs y simulaciones de incidentes de seguridad.",
+    icon: "logo",
   },
   {
-    name: "NodeJs",
-    description: "I've been using NodeJs for backend development since 2018",
-    icon: "nodejs"
+    name: "Python para Ciberseguridad",
+    description:
+      "Scripts para automatizar informes, análisis de datos y pequeños backends (FastAPI, Streamlit, etc.).",
+    icon: "react",
   },
   {
-    name: "MongoDB",
-    description: "My favorite database for modern apps",
-    icon: "mongodb"
-  }
+    name: "SQL & Bases de datos",
+    description:
+      "Consultas e informes sobre datos de transacciones y eventos de seguridad para proyectos de AML.",
+    icon: "mongodb",
+  },
 ];
 
 export default hardSkills;

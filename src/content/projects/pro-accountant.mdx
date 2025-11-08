@@ -1,109 +1,153 @@
 ---
-title: ProAccountant Website
-summary: Professional Accounting Services Website built with Next.js, Tailwind CSS, TypeScript, and ShadCN. The site showcases accounting services, features a contact form, and offers a blog section to establish the accountant as an authority in the field.
+title: "Automated Nmap Scan & Reporting Tool"
+summary: "Bash-based tool that runs scheduled Nmap scans and generates reports for Blue Team investigations."
 tags:
-    - React
-    - Next.js
-    - ContentFull
-    - Motion
-    - Tailwind
-startDate: 2024-12-20
-endDate: 2024-12-20
-author: VicBox
-url: https://google.com
-cover: './images/pro-accountant/accnt.webp'
-ogImage: './images/pro-accountant/accnt.webp'
+  - Bash
+  - Nmap
+  - Linux
+  - Automation
+startDate: 2024-01-01
+endDate: 2024-02-01
+author: "Ignacio Menárguez Fernández"
+url: "https://github.com/Nachomf112"
+cover: "./images/nmap-auto/nmap-auto.png"
+ogImage: "./images/nmap-auto/nmap-auto.png"
 ---
 
-## Table of Contents
-1. [Overview](#overview)
-2. [Role](#role)
-3. [Problem](#problem)
-4. [Goal](#goal)
-5. [Solution](#solution)
-    - [Understanding User Needs](#understanding-user-needs)
-    - [Core Features](#core-features)
-    - [Design and Development Process](#design-and-development-process)
-6. [User Testing](#user-testing)
-7. [Challenges and Learnings](#challenges-and-learnings)
-8. [Final Thoughts](#final-thoughts)
+## 📚 Table of Contents
+
+1. [🔎 Overview](#-overview)  
+2. [👨‍💻 Role](#-role)  
+3. [❓ Problem](#-problem)  
+4. [🎯 Goal](#-goal)  
+5. [✨ Solution](#-solution)  
+   - [🏗️ Architecture](#️-architecture)  
+   - [🧩 Core Features](#-core-features)  
+   - [🔁 Workflow](#-workflow)  
+6. [🧪 User Testing](#-user-testing)  
+7. [⚙️ Challenges and Learnings](#️-challenges-and-learnings)  
+8. [✅ Final Thoughts](#-final-thoughts)
 
 ---
 
-## Overview
-**ProAccountant** is a modern website designed to help a professional accountant expand her client base and showcase her expertise through a blog. Built using **Next.js**, **Tailwind CSS**, **TypeScript**, and **ShadCN**, the site provides a clean, intuitive interface for potential clients to learn about her services, contact her, and benefit from free, informative blog content.
+## 🔎 Overview
+
+**Automated Nmap Scan & Reporting Tool** is a **Bash-based automation framework** that runs scheduled **Nmap** scans against internal networks and generates reports to support **Blue Team investigations**.
+
+The idea is to have a small, repeatable tool that:
+
+- 🕒 Uses predefined scan profiles on a regular basis.  
+- 📂 Organizes results in a consistent folder structure.  
+- 📑 Produce reports that analysts can review quickly during incidents or periodic checks.  
 
 ---
 
 ## 👨‍💻 Role
-**Lead Developer** and **Designer**
+
+I was responsible for:
+
+- 🧠 Designing the scan profiles and folder structure.  
+- 💻 Writing the Bash scripts that orchestrate Nmap and post-processing.  
+- 🔎 Preparing the output so it is easy to interpret by SOC / Blue Team analysts.  
 
 ---
 
 ## ❓ Problem
-The accountant faced these challenges:
-1. Limited reach to potential clients beyond her local area.
-2. Difficulty in showcasing her expertise in a way that adds value to prospective clients.
-3. Lack of a streamlined and professional way for potential clients to contact her.
+
+Manual Nmap scans have several issues:
+
+- ⏳ They are **time-consuming** and easy to forget.  
+- 📊 Parameters change from one scan to another, making results **hard to compare**.  
+- 🗃️ Outputs often end up in random folders without a clear structure.  
+
+For a Blue Team, this makes it difficult to:
+
+- Mantain regular baseline scans.  
+- Detect changes in exposed services.  
+- Reuse results during investigations.  
 
 ---
 
 ## 🎯 Goal
-1. Create an attractive, professional website to market her accounting services.
-2. Build a **contact form** that allows seamless communication with potential clients.
-3. Develop a mini blog to share content and establish her as a trusted authority in accounting.
+
+Create an automation that:
+
+- ⚙️ Runs Nmap scans on a **regular schedule** or on demand.  
+- 📋 Uses **standardized profiles** (quick scan, full scan, vuln scan…).  
+- 📁 Stores results in an organized way, **tagged by date and target**.  
+- 🧾 Generates summaries that speed up triage during investigations.  
 
 ---
 
 ## ✨ Solution
 
-### Understanding User Needs
-We conducted a brief survey and interviews with 10 small business owners and freelancers (her target audience) to identify their expectations for an accounting services website. Key findings:
-- **Trustworthiness:** A clean and professional design is crucial to establishing trust.
-- **Easy Navigation:** Users expect to find information about services quickly.
-- **Educational Value:** A blog with tips and guidance enhances the site's value.
+### 🏗️ Architecture
 
-### Core Features
-1. **Services Page:** Clear and concise information about her offerings.
-2. **Contact Form:** A dynamic form with validation and spam protection.
-3. **Blog Section:** Articles categorized by topics (e.g., tax tips, financial planning).
-4. **Responsive Design:** Optimized for desktop and mobile users.
+The tool is built around a set of Bash scripts that:
 
-### Design and Development Process
-1. **Frontend:** Built using **Next.js** for its fast rendering capabilities.
-2. **Styling:** Styled with **Tailwind CSS**, ensuring a clean, modern aesthetic.
-3. **Component System:** Developed reusable UI components using **ShadCN**.
-4. **Interactivity:** Integrated TypeScript for type safety and robust interactivity.
-5. **SEO Optimization:** Implemented metadata and structured content for better search rankings.
+- 📜 Read a **targets list** or IP ranges.  
+- 🎚️ Select the appropriate Nmap profile.  
+- 🚀 Launch Nmap with the right options.  
+- 💾 Save outputs in multiple formats (`.gnmap`, `.xml`, `.txt`).  
+- 🧾 Optionally generate a **summary report**.
 
----
+Directory structure is organized like:
 
-## 🚌 User Journey
-1. **Homepage:** Features a welcoming introduction, her services, and a call-to-action for the blog and contact form.
-2. **Services Page:** Detailed descriptions of accounting services like bookkeeping, tax preparation, and financial consulting.
-3. **Contact Page:** An interactive form that auto-validates inputs and sends direct inquiries to her email.
-4. **Blog Page:** Displays articles sorted by relevance with easy navigation.
+- `logs/` – execution logs.  
+- `results/YYYY-MM-DD/target/` – Nmap outputs per day and per target.  
+
+### 🧩 Core Features
+
+- 🔄 **Multiple scan profiles** (fast, full, version detection, vulnerability scripts).  
+- 🧬 Support for **custom NSE scripts** when deeper analysis is needed.  
+- 📂 Automatic creation of folders per **date** and **target**.  
+- 🔍 Simple summary that highlights:
+  - Hosts up / down.  
+  - Open services per host.  
+  - Potentially vulnerable services.  
+
+### 🔁 Workflow
+
+1. 🧾 The analyst updates the targets file (hosts, ranges or subnets).  
+2. ▶️ Runs the main script (or schedules it with `cron`).  
+3. 🛰️ The tool launches all Nmap scans with the selected profiles.  
+4. 📊 At the end, results are stored and a brief summary is generated for review.  
 
 ---
 
 ## 🧪 User Testing
-We tested the website prototype with 8 participants and gathered insights:
-- **Ease of Navigation:** 7/8 participants found the site easy to navigate.
-- **Contact Form:** Users appreciated the validation messages and simplicity of the form.
-- **Blog Engagement:** The blog received positive feedback, with users suggesting adding a search bar for articles.
+
+I validated the tool in a **lab environment**:
+
+- 🌐 Different subnets with mixed Windows / Linux hosts.  
+- 🔁 “Before and after” scenarios (services enabled/disabled).  
+
+This allowed me to verify that:
+
+- 🧭 Changes in exposed ports are visible between scan runs.  
+- 📁 The folder structure is easy to navigate during an investigation.  
 
 ---
 
 ## ⚙️ Challenges and Learnings
-1. **Dynamic Blog Management:** Managing blog posts dynamically required integrating a CMS for easier updates.
-2. **Spam Protection:** Setting up a reliable anti-spam solution for the contact form was critical to avoid irrelevant submissions.
-3. **Accessibility:** Ensured the site meets accessibility standards, improving usability for all users.
+
+- ⚖️ **Balancing speed vs. detail**: aggressive scans give more info but can be slow; I separated profiles for routine checks vs. deep dives.  
+- 🧮 **Output parsing**: Nmap produces a lot of data; deciding what to summarize and what to keep as raw output was key.  
+- 🕰️ **Scheduling**: integrating with `cron` required careful logging so analysts know when each scan ran and if something failed.  
 
 ---
 
-## ✨ Final Thoughts
-1. **Design Matters:** A clean and professional design significantly increases trust and engagement.
-2. **Content is Key:** The blog not only adds value but also boosts SEO and client retention.
-3. **Continuous Improvement:** Adding new features like a client testimonial section or financial calculators could further enhance the site's utility.
+## ✅ Final Thoughts
 
----
+This project helped me practice:
+
+- 🤖 Automating security tasks with **Bash**.  
+- 🛰️ Using **Nmap** not just as a one-off tool, but as part of a **repeatable process**.  
+- 📚 Structuring outputs so a Blue Team can quickly answer questions like  
+  *“what changed on this host?”* or *“which services are exposed today?”*.
+
+It’s a solid base that I can extend with:
+
+- 📄 HTML or Markdown reports.  
+- 🧷 Integration with SIEM / log platforms.  
+- 🎛️ Additional profiles focused on specific services or compliance checks.

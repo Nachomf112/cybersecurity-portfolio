@@ -1,0 +1,40 @@
+---
+title: "AML-Backend · API for Menarguez-IA"
+summary: "Backend/API project for handling data and automation related to AML and cybersecurity use cases."
+tags:
+  - Backend
+  - API
+  - Node.js
+  - Security
+startDate: 2024-05-01
+endDate: 2024-05-20
+author: "Ignacio Menárguez Fernández"
+url: "https://github.com/Nachomf112/aml-backend"
+cover: "./images/aml-backend/aml-backend.png"
+ogImage: "./images/aml-backend/aml-backend.png"
+---
+
+## Overview
+
+This project is a backend/API designed to support **Menarguez-IA Solutions**.
+The goal is to provide endpoints for security and AML-related automations,
+storing data and exposing it in a clean and secure way.
+
+## Main features
+
+- REST-style endpoints for core functionalities.
+- Separation between configuration, routes and business logic.
+- Basic validation and error handling.
+- Ready to be deployed on a cloud provider or containerized.
+
+## Tech stack
+
+- **Node.js / JavaScript** (or el lenguaje real que uses).
+- **GitHub** for version control.
+- Designed to integrate with frontend dashboards or automation scripts.
+
+## What I learned
+
+- How to structure a small backend/API project.
+- How to think in terms of endpoints and data flows.
+- How to prepare a security-focused project ready for future extensions.

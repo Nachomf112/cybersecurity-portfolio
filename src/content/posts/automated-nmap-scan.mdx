@@ -1,0 +1,87 @@
+---
+author: Ignacio Menárguez Fernández
+publishDate: 2025-02-05T10:00:00Z
+title: Automated Nmap Scan & Reporting Tool
+tags:
+  - nmap
+  - bash
+  - linux
+  - automation
+description: Bash-based tool that runs scheduled Nmap scans and generates reports for Blue Team investigations.
+cover:
+  # Usa aquí una imagen que SÍ tengas
+  src: './images/automated-nmap-scan.png'
+  alt: 'Analista revisando resultados de escaneos Nmap'
+---
+
+En este artículo presento **Automated Nmap Scan & Reporting Tool**, un
+script en **Bash** pensado para ayudar a un Blue Team a ejecutar
+**escaneos Nmap de forma repetible** y obtener informes listos para
+analizar.
+
+La herramienta permite lanzar diferentes perfiles de Nmap contra rangos
+de IP internos, guardar los resultados de forma organizada y generar
+informes que se puedan revisar más tarde o compartir con el equipo.
+
+---
+
+## Objetivo del proyecto
+
+En muchos laboratorios y ejercicios de red me encontraba siempre con el
+mismo problema:
+
+- Tenía que recordar a mano todos los parámetros de Nmap.
+- Los resultados se quedaban desperdigados en distintos ficheros.
+- No había una forma rápida de revisar qué puertos o servicios habían
+  cambiado entre escaneos.
+
+El objetivo de este proyecto fue crear un **flujo automatizado** que:
+
+- Estandarizara los comandos de Nmap que uso más a menudo.
+- Guardara los resultados en rutas claras y con fecha/hora.
+- Generara informes fáciles de revisar desde el punto de vista del Blue Team.
+
+---
+
+## Flujo de trabajo
+
+El script principal:
+
+1. Recibe como entrada el **rango de IP** o la máquina a escanear.
+2. Permite escoger entre varios **perfiles de escaneo**:
+   - Escaneo rápido de puertos más comunes.
+   - Escaneo completo de puertos.
+   - Escaneo con scripts de vulnerabilidades.
+3. Ejecuta Nmap con las opciones adecuadas (formato normal, XML, etc.).
+4. Guarda los resultados en carpetas organizadas por:
+   - Fecha del escaneo.
+   - Objetivo (IP o rango).
+5. Opcionalmente genera un **informe resumen** indicando:
+   - Hosts arriba/abajo.
+   - Puertos abiertos por servicio.
+   - Servicios potencialmente sensibles.
+
+---
+
+## Tecnologías utilizadas
+
+- **Bash** para la automatización y la lógica del lanzador.
+- **Nmap** como motor de escaneo de red.
+- **Linux (Kali)** como entorno principal de trabajo.
+- Opcionalmente, procesado posterior con Python para generar informes
+  más detallados.
+
+---
+
+## Qué aprendí con este proyecto
+
+- Diseñar scripts **reutilizables** para tareas de red repetitivas.
+- Organizar bien la salida de Nmap para que sea útil al Blue Team.
+- Documentar opciones de escaneo de forma que otro analista pueda
+  entender rápidamente qué hace cada perfil.
+- Pensar los escaneos Nmap no solo desde la parte ofensiva, sino también
+  como herramienta de **monitorización y control de cambios** en la red.
+
+Este proyecto forma parte de mi laboratorio personal de herramientas,
+junto con **Menarguez-IA AML Suite** y otros desarrollos de
+**Menarguez-IA Solutions**.

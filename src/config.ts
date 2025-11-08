@@ -14,66 +14,49 @@ export const SITE = {
 }
 
 export const ME = {
-    name: "VicBox Dot Dev",
-    profession: "Software Engineer | Full Stack Developer",
+    name: "Ignacio Menárguez Fernández",
+    profession: "Junior Cybersecurity Analyst | Blue Team | SOC | Forensics",
     profileImage: "pp2.png",
     profileFacts: [
         {
+            value: 1,
+            description: "Year of Cybersecurity Experience"
+        },
+        {
+            value: 480,
+            description: "Hours of Cybersecurity Training"
+        },
+        {
             value: 10,
-            description: "Years of Experience"
-        },
-        {
-            value: 5,
-            description: "Completed Projects"
-        },
-        {
-            value: 4,
-            description: "Satisfied Clients"
+            description: "IA & Automation Projects "
         }
     ],
     contactInfo: {
-        email: "vicbox.dev@vicbox.dev",
-        linkedin: "https://www.linkedin.com/in/victor-alvaradohn",
-        resumeDoc: "resume.pdf",
+        email: "info@imenarguez-ia.com",
+        linkedin: "https://www.linkedin.com/in/ignaciomenarguezfernandez/",
+        resumeDoc: "/cv-ignacio-menarguez-fernandez.pdf",
     },
-    aboutMe: "I am a software engineer with a passion for web development. I have experience in building web " + "applications using modern technologies. I am a self-taught developer who enjoys learning new things and " + "sharing knowledge with others.",
+    aboutMe: "I am a junior cybersecurity analyst with a strong focus on Blue Team, SOC monitoring and digital forensics. After completing a 480-hour cybersecurity course and an AI course, I have been building my own tools and scripts to automate tasks such as Nmap scanning, OSINT analysis and Linux security reporting. I also run Menarguez-IA-Solutions, where I help companies improve their security and efficiency through AI-driven automation and custom scripts.",
 }
 
 export const SOCIALS = [
     {
-        name: "Twitter",
-        url: "https://twitter.com/vicbox.dev",
-        icon: "twitter-x-fill",
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/ignaciomenarguezfernandez/",
+        icon: "link",
         show: true
     },
     {
-        name: "Facebook",
-        url: "https://www.facebook.com/vicbox.dev",
-        icon: "facebook-fill",
+        name: "GitHub",
+        url: "https://github.com/Nachomf112",
+        icon: "github-fill",
         show: false
     },
     {
         name: "Instagram",
-        url: "https://www.instagram.com/vicbox.dev",
+        url: "https://www.instagram.com/menarguez_ia_solutions/",
         icon: "instagram-fill",
         show: true
     },
-    {
-        name: "Youtube",
-        url: "https://www.youtube.com/vicbox.dev",
-        icon: "youtube-fill",
-        show: true
-    },
-    {
-        name: "TikTok",
-        url: "https://tiktok.com/vicbox.dev",
-        icon: "tik-fill",
-        show: false
-    },
-    {
-        name: "GitHub",
-        url: "https://github.com/vicbox.dev",
-        icon: "github-fill",
-        show: true
-    }
+ 
 ]

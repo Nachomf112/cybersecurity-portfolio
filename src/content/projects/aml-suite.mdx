@@ -1,0 +1,114 @@
+---
+title: "Menarguez-IA AML Suite"
+summary: "Integrated toolkit for AML investigations with Bash launcher, FastAPI backend and Streamlit dashboard."
+tags:
+  - AML
+  - FastAPI
+  - Streamlit
+  - Bash
+  - SQL
+  - Automation
+startDate: 2025-01-01
+endDate: 2025-02-15
+author: "Ignacio Menárguez Fernández"
+url: "https://github.com/Nachomf112/aml-backend"
+cover: "./images/aml-suite/aml-suite.png"
+ogImage: "./images/aml-suite/aml-suite.png"
+---
+
+## 📚 Table of Contents
+
+1. [🔎 Overview](#-overview)  
+2. [👨‍💻 Role](#-role)  
+3. [❓ Problem](#-problem)  
+4. [🎯 Goal](#-goal)  
+5. [🏗️ Architecture](#️-architecture)  
+6. [✨ Main Features](#-main-features)  
+7. [🧪 User Testing](#-user-testing)  
+8. [⚙️ Challenges and Learnings](#️-challenges-and-learnings)  
+9. [✅ Final Thoughts](#-final-thoughts)
+
+---
+
+## 🔎 Overview
+
+**Menarguez-IA AML Suite** is an integrated toolkit to support **Anti-Money Laundering (AML) investigations**.
+
+With a single Bash launcher, the environment:
+
+- ✅ Verifies critical paths and dependencies.  
+- 🚀 Starts a **FastAPI** backend with a documented Swagger API.  
+- 📊 Launches a **Streamlit** dashboard for real-time risk monitoring.  
+- 🧩 Connects to local data processing tools such as `main_sql.py` and forensic scripts.
+
+The goal is to simulate a compact **AML investigation platform** that centralizes scripts, dashboards and APIs in one place.
+
+---
+
+## 👨‍💻 Role
+
+In this project I was responsible for:
+
+- 🧱 Designing the overall architecture of the suite (launcher, backend, dashboard, scripts).  
+- 💻 Implementing the Bash orchestration logic.  
+- 🐍 Developing and integrating the Python components (FastAPI, Streamlit, SQL tooling).  
+- 🧪 Testing the suite in a local AML lab scenario and refining the workflow.  
+
+---
+
+## ❓ Problem
+
+AML investigations often require:
+
+- Working with **multiple disconnected tools** (scripts, dashboards, APIs).  
+- Repeating manual steps to launch environments and load data.  
+- Keeping track of logs, paths and states when something fails.
+
+This increases friction for analysts and makes it harder to:
+
+- Reproduce investigations.  
+- Share a consistent workflow with other team members.  
+- Extend the toolkit over time.
+
+---
+
+## 🎯 Goal
+
+Build a suite that:
+
+- 🔘 Starts with **one single command** (`bash lanzar_suite_aml.sh`).  
+- 🧩 Groups together backend, dashboards and helper scripts.  
+- 🧠 Makes it easier to run AML experiments and investigations in a repeatable way.  
+- 📈 Provides dashboards and endpoints that could later be integrated into bigger systems.
+
+---
+
+## 🏗️ Architecture
+
+The suite is composed of several scripts and components:
+
+- **`lanzar_suite_aml.sh`**  
+  - Main launcher that verifies the environment, checks critical paths and starts all services.
+
+- **`verificador_ruta.sh`**  
+  - Helper script that validates folders and scripts before execution to avoid runtime errors.
+
+- **`main_sql.py`**  
+  - Handles SQL queries and data preparation for AML analysis (transactions, alerts, KPIs).
+
+- **`aml_dashboard.py`**  
+  - Main **Streamlit** dashboard for analysts, showing:
+    - Key risk indicators.  
+    - Top accounts with more alerts.  
+    - Suspicious transactions and patterns.
+
+- **`aml_dashboard_old.py`**  
+  - Previous version of the dashboard, kept for reference and comparison during refactors.
+
+- **`forensis.py`**  
+  - Forensic toolkit to perform deeper investigations and export additional evidence.
+
+All components are coordinated so that a single command:
+
+```bash
+bash lanzar_suite_aml.sh
