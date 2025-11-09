@@ -1,0 +1,36 @@
+---
+title: "Nmap Auto Reporter"
+slug: "nmap-auto-reporter"
+summary: "Herramienta en línea de comandos para lanzar escaneos Nmap y generar un informe en Markdown listo para pegar en un ticket del SOC o en un informe."
+startDate: 2024-11-01
+endDate: 2024-11-01
+tags:
+  - bash
+  - nmap
+  - linux
+  - automation
+url: "https://github.com/Nachomf112/nmap-auto-reporter"
+githubUrl: "https://github.com/Nachomf112/nmap-auto-reporter"
+liveUrl: ""
+cover: "./images/nmap-auto/nmap-auto.png"
+ogImage: "./images/nmap-auto/nmap-auto.png"
+---
+
+Nmap Auto Reporter es una pequeña herramienta en **Python** y **Bash** pensada para
+ayudar a un analista SOC a documentar escaneos de **Nmap** sin tener que copiar y
+pegar la salida a mano.
+
+## ¿Qué hace?
+
+- Lanza Nmap con detección de servicios (`-sV`) y perfil agresivo (`-T4`).
+- Guarda el resultado crudo en `reports/scan_YYYYMMDD-HHMMSS.nmap`.
+- Genera un informe **Markdown** con:
+  - Fecha del escaneo (UTC).
+  - Objetivo escaneado.
+  - Comando Nmap utilizado.
+  - Salida completa de Nmap en un bloque de código, lista para pegar en un ticket.
+
+## Ejemplo de uso
+
+```bash
+python nmap_reporter.py
