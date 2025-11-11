@@ -27,6 +27,7 @@ export const SITE = {
 export const ME = {
     name: "Ignacio Menárguez Fernández",
     profession: "Junior Cybersecurity Analyst | Blue Team | SOC | Forensics",
+    tagline: "Buscando primeras oportunidades como Junior SOC / Blue Team",
     profileImage: "pp2.png",
     profileFacts: [
         { value: 1, description: "Year of Cybersecurity Experience" },
