@@ -1,94 +1,83 @@
 ---
 title: "AuthLog Auto Reporter: resúmenes rápidos de auth.log"
-pubDate: "2025-02-10"
-description: "Script en Python que analiza auth.log y genera un informe en Markdown con IPs atacantes, usuarios más atacados y logins aceptados."
+description: "Herramienta en Python que resume auth.log en un informe Markdown con IPs maliciosas, usuarios atacados y logins válidos, lista para pegar en un ticket de SOC y ahorrar tiempo en el triage. ⏱️🔐"
+publishDate: 2025-02-10
+cover:
+  src: "/images/authlog-auto/authlog-auto.png"
+  alt: "Portada del informe generado por AuthLog Auto Reporter"
 tags: ["blue-team", "python", "linux", "logs", "automation"]
-heroImage: "/images/authlog-auto/authlog-auto.png"
 ---
+Cuando hay un incidente de seguridad, el analista SOC suele empezar en el mismo sitio: **los logs de autenticación**. Ahí están los intentos de fuerza bruta, los usuarios probados, las IPs raras que no deberían estar ahí… pero leer `auth.log` a pelo puede ser un dolor 😵‍💫.
 
-En este artículo explico cómo funciona **AuthLog Auto Reporter** 🧾, una herramienta en Python pensada para ayudar a un analista SOC a **resumir rápidamente lo más importante** de un fichero `auth.log` (SSH, sudo, autenticación) sin tener que leer cientos de líneas a mano.
+En este artículo cuento cómo funciona **AuthLog Auto Reporter**, una herramienta en **Python** que he creado para **resumir lo más importante de un fichero `auth.log`** y dejarlo listo para pegar en un ticket del SOC o en un informe técnico. 🧾  
 
----
-
-## 🧠 Contexto: ¿por qué este proyecto?
-
-En un SOC es muy habitual encontrarse alertas del tipo:
-
-- *Múltiples intentos fallidos de SSH desde una misma IP.*
-- *Posible fuerza bruta contra cuentas del sistema.*
-- *Acceso SSH exitoso desde una IP poco habitual.*
-
-Cuando esto ocurre, casi siempre acabamos en el mismo sitio:  
-➡️ **`/var/log/auth.log`** (o equivalente según la distro).
-
-El problema es que:
-
-- El log suele ser **muy ruidoso**.
-- Hay muchos eventos repetidos.
-- Es fácil perderse entre intentos fallidos, sesiones abiertas, sudo, etc.
-
-La idea de AuthLog Auto Reporter es muy sencilla:
-
-> “Dame un `auth.log` y te devuelvo un **resumen en Markdown listo para pegar en el ticket** del incidente.”
+El objetivo es muy simple: **ahorrar tiempo en el triage** y que el analista pueda centrarse en tomar decisiones, no en pelearse con líneas de log.
 
 ---
 
 ## 🔍 ¿Qué problema resuelve?
 
-En lugar de revisar el `auth.log` línea a línea, el script:
+Cuando hay fuerza bruta o actividad sospechosa en SSH / sudo suele ocurrir que:
 
-- 🔢 **Agrupa las IPs** con más intentos de login fallidos.
-- 👤 Muestra los **usuarios más atacados**.
-- ✅ Lista los **logins aceptados**, para revisar accesos legítimos o sospechosos.
-- 📄 Genera todo en un **informe Markdown** con tablas que se puede pegar directamente en:
-  - un ticket del SOC,
-  - un informe técnico,
-  - o en una wiki interna.
+- Leer `auth.log` línea a línea es **lento y repetitivo**.
+- Es fácil **saltarse patrones** si estás cansado o tienes varios casos abiertos.
+- Tienes que convertir lo que ves en el log en algo legible para el ticket:  
+  *“Top IPs, usuarios atacados, logins correctos, rango de fechas…”*
 
-Esto ahorra tiempo al analista y, sobre todo, **estandariza** la forma de documentar estos casos.
+Ahí es donde entra **AuthLog Auto Reporter**. El script:
+
+- Agrupa las **IPs con más intentos de login fallidos**.
+- Lista los **usuarios más atacados**.
+- Resume los **usuarios que sí han conseguido login**.
+- Deja todo en un **informe Markdown** limpio y directo para el ticket.
+
+La idea es que el analista SOC pase de un log ruidoso a un **resumen accionable** en segundos.
 
 ---
 
-## ⚙️ Flujo de uso
+## ⚙️ ¿Cómo funciona la herramienta?
 
-1. Exportar o copiar el `auth.log` que quieras analizar:
+A nivel alto, el flujo interno es:
 
-   ```bash
-   sudo cp /var/log/auth.log samples/auth.log
+1. **Lee el fichero de log** que le pasas por parámetro (`auth.log`, `secure`, etc.).
+2. **Detecta intentos fallidos y logins válidos** según los patrones típicos de SSH / sudo.
+3. **Cuenta y agrupa**:
+   - IPs con más intentos fallidos.
+   - Usuarios más atacados.
+   - Usuarios con logins aceptados.
+4. **Genera un informe en Markdown** con tablas sencillas, rango de fechas observado y una pequeña nota final para el ticket.
 
-## 🧾 Ejemplo de informe generado
+El comando básico es:
 
-A continuación tienes un ejemplo real de informe Markdown generado por la herramienta a partir del fichero `samples/auth.log`:
+```bash
+python authlog_reporter.py -i samples/auth.log
 
-```markdown
 # AuthLog Auto Reporter
 
-Informe generado automáticamente a partir del fichero:
+Informe generado automáticamente a partir del fichero: `samples/auth.log`
 
 - **Fichero analizado**: `samples/auth.log`
-- **Periodo observado**: 2025-01-10 10:10:10 -> 2025-01-10 10:13:13
+- **Periodo observado**: 2025-01-10 10:10:10 → 2025-01-10 10:13:13
 
 ## Top IPs con intentos de login fallidos
 
-| IP      | Intentos fallidos |
-|---------|-------------------|
-| 1.2.3.4 | 1                 |
-| 5.6.7.8 | 1                 |
-| 10.0.0.5| 1                 |
+| IP       | Intentos fallidos |
+|----------|-------------------|
+| 1.2.3.4  | 10                |
+| 5.6.7.8  | 7                 |
 
 ## Usuarios más atacados (intentos fallidos)
 
 | Usuario | Intentos fallidos |
-|--------|-------------------|
-| test   | 1                 |
-| root   | 1                 |
-| admin  | 1                 |
+|---------|-------------------|
+| root    | 8                 |
+| admin   | 5                 |
 
 ## Usuarios con logins aceptados
 
-| Usuario | Logins aceptados |
-|--------|-------------------|
-| nacho  | 1                 |
+| Usuario | Logins aceptados  |
+|---------|-------------------|
+| nacho   | 1                 |
 
-_Consejo_: copia este informe en el ticket del SOC y añade detalles del caso
+_Consejo_: copia este informe en el ticket del SOC y añade detalles del caso  
 (alerta original, acciones de contención, bloqueo de IPs, etc.).
