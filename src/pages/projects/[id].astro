@@ -19,12 +19,7 @@ const { title, summary, tags, cover, ogImage, url } = post.data;
 const { Content } = await render(post);
 ---
 
-<Layout
-  title={title}
-  description={summary}
-  imageOg={ogImage}
-  scrollSmooth={true}
->
+<Layout title={title} description={summary} imageOg={ogImage} scrollSmooth={true}>
   <div class="flex justify-center mt-10">
     <BackBtn />
   </div>
@@ -45,9 +40,7 @@ const { Content } = await render(post);
     />
   )}
 
-  {summary && (
-    <p class="mt-6 text-zinc-300">{summary}</p>
-  )}
+  {summary && <p class="mt-6 text-zinc-300">{summary}</p>}
 
   {url && (
     <p class="mt-3">
@@ -55,10 +48,11 @@ const { Content } = await render(post);
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 rounded-lg px-4 py-2
-               bg-amber-400 text-black hover:bg-amber-300 transition"
-      >
-        Visitar el proyecto ↗
+        class="inline-flex items-center gap-2 rounded-lg px-5 py-3
+               bg-amber-400 text-black font-semibold shadow-sm
+               hover:bg-amber-300 active:bg-amber-300
+               focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300">
+        Abrir demo <span aria-hidden="true">↗</span>
       </a>
     </p>
   )}
@@ -66,7 +60,7 @@ const { Content } = await render(post);
   <!-- Contenido MDX con tipografía accesible en fondo oscuro -->
   <article
     id="article"
-    class="mt-10 prose prose-invert lg:prose-lg text-zinc-100
+    class="mt-10 prose dark:prose-invert lg:prose-lg text-zinc-100
            prose-headings:text-white prose-strong:text-zinc-100
            prose-a:text-amber-300 hover:prose-a:text-amber-200
            prose-blockquote:text-zinc-200 prose-code:text-emerald-300
@@ -79,9 +73,23 @@ const { Content } = await render(post);
 </Layout>
 
 <style is:global>
-  /* Títulos del artículo un poco más visibles */
+  /* Asegura alto contraste dentro del artículo renderizado con Typography */
+  #article.prose :where(em):not(:where(.not-prose *)) {
+    /* Los <em> venían muy tenues; los ponemos legibles */
+    @apply not-italic text-white/90;
+  }
+
+  #article.prose :where(a):not(:where(.not-prose *)) {
+    /* Enlaces dentro del artículo bien visibles en dark */
+    @apply text-amber-300 underline underline-offset-4 decoration-amber-400/50 hover:text-amber-200;
+  }
+
+  /* Por si algún navegador aplica color al enlace-botón */
+  a.bg-amber-400 { @apply text-black !important; }
+
+  /* Títulos del artículo algo más visibles */
   #article h2 { @apply text-2xl font-bold my-4; }
 
-  /* Evitar cortes feos en bloques de código largos dentro de la prosa */
+  /* Evitar cortes feos en bloques de código largos */
   .prose pre code { white-space: pre-wrap; word-break: break-word; }
 </style>
