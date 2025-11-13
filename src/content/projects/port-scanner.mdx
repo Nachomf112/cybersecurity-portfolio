@@ -2,86 +2,57 @@
 title: "Port Scanner — Menárguez_IA Solutions"
 summary: "Escaneos de puertos (rápidos, top1000 y full), validación de autorización y registro de histórico."
 startDate: 2025-11-01
-endDate: 2025-11-12
+endDate: 2025-11-01
+status: "done"
 url: "https://clone-portal-mobile-c3jt.bolt.host/"
-
-# Para OG usa una ruta pública absoluta (carpeta /public)
-ogImage: "/images/port-scanner/og-port-scanner.png"
-
-# Para la portada usa la imagen que está junto al MDX
-cover: "./port-scanner/port-scanner.png"
-
-# <- CAMPO REQUERIDO POR TU SCHEMA
-tags:
-  - "Cybersecurity"
-  - "Nmap"
-  - "FastAPI"
-  - "Streamlit"
-  - "Mobile"
-  - "Bash"
-
-# Puedes mantener 'tech' si tu UI lo usa
-tech: ["Python", "FastAPI", "Streamlit", "Bash", "Nmap"]
+cover: "./port-scanner.png"
+tags: ["Cybersecurity", "Nmap", "FastAPI", "Streamlit", "Mobile", "Bash"]
 ---
 
+# 🔎 Port Scanner (Mobile-First)
 
-# 🚀 Port Scanner (Mobile-First)
+Un **port scanner** pensado para móviles, con perfiles de escaneo y una UX cuidada para analistas junior.
 
-![UI Port Scanner](./port-scanner.png)
-
-Un **port scanner** pensado para móviles, con perfiles de escaneo y UX cuidada para analistas junior.
+<div style={{margin:'1rem 0'}}>
+  <a href={url} target="_blank" rel="noreferrer"
+     class="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-amber-400 text-black hover:bg-amber-300 transition">
+    🌐 Abrir demo
+    <span aria-hidden>↗</span>
+  </a>
+</div>
 
 ---
 
 ## ✨ Características clave
-
 - ⚡ **Perfiles de escaneo**: *Quick*, *Top1000* y *Full*.
-- 🎯 **Validación de autorización** del objetivo antes de escanear.
-- 🧩 **Puertos personalizados** (coma-separados) cuando lo necesites.
+- ✅ **Validación de autorización** del objetivo antes de escanear.
+- 🎯 **Puertos personalizados** (coma-separados) cuando lo necesites.
 - 📱 **Mobile-first** con UI clara y botones grandes.
 - 🗂️ **Histórico de escaneos** (idea para la siguiente iteración).
 - 🛡️ **Buenas prácticas**: disclaimers, límites y mensajes claros.
 
----
-
-## 🧪 Flujo de usuario
-
-1. Introduce **IP/host** (`e.g. 192.168.1.1 o example.com`).
-2. Elige **perfil**: *Quick*, *Top1000* o *Full*.
-3. (Opcional) Añade **puertos** personalizados (`80,443,8080`).
+## 🧭 Flujo de usuario
+1. Introduce **IP/host** (por ejemplo, `192.168.1.1` o `example.com`).
+2. Elige perfil: **Quick**, **Top1000** o **Full**.
+3. (Opcional) Añade **puertos personalizados**: `80,443,8080`.
 4. Marca **“I am authorized to scan this target”** ✅.
 5. Pulsa **Start Scan** ▶️.
 
----
-
-## 🛠️ Tecnologías
-
-- 🐍 **Python** + **FastAPI** (backend)
-- 🧼 **Streamlit** (UI)
-- 🔍 **Nmap** (motor de escaneo)
+## 🧰 Tecnologías
+- 🐍 **Python** + ⚡ **FastAPI** (backend)
+- 🖥️ **Streamlit** (UI)
+- 🔎 **Nmap** (motor de escaneo)
 - 🐚 **Bash** (automatizaciones)
 
----
+> ### 🔒 Ética y cumplimiento
+> Escanea **solo** sistemas para los que tengas permiso **explícito**.  
+> La app incluye checkbox de autorización y mensajes preventivos.
 
-## 🔒 Ética y cumplimiento
-
-> Escanea **solo** sistemas para los que tengas permiso explícito.  
-> Añadimos un *checkbox* de autorización y mensajes preventivos.
-
----
-
-## 🔗 Demo
-
-- 🌐 **Demo**: [Ir a la app](https://clone-portal-mobile-c3jt.bolt.host/)
-- 📦 **Roadmap**:
-  - Exportar resultados (CSV/JSON/PDF) 📤  
-  - Vista **History** con filtros y repetición de escaneos 🕓  
-  - Integración con **SOC tickets** 📥  
-  - Multi-idioma ES/EN 🌍
-
----
+## 🔭 Roadmap breve
+- Exportación de resultados (CSV/JSON/PDF) 📤  
+- Vista **History** con filtros y repetición de escaneos 🕓  
+- Integración con tickets de SOC 📥  
+- Multi-idioma ES/EN 🌍
 
 ## 📸 Capturas
-
-> Arriba tienes la UI principal — si cambias el diseño, añade aquí más imágenes con rutas **relativas** (`./archivo.png`).
-
+> Si cambias el diseño, añade aquí nuevas imágenes con rutas relativas (por ejemplo `./ui-main.png`).
