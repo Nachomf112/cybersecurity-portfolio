@@ -1,0 +1,53 @@
+---
+title: "Menárguez-IA Platform — Resumen"
+summary: "Constructor de landings con IA al estilo emergent/bolt: chat → JSON (PageSpec) → renderer propio. Flujo de reservas /book con correo (Resend), estilos unificados (oscuro + acento), precios en EUR y secciones reutilizables."
+startDate: 2025-11-14
+endDate: 2025-11-14
+url: ""                     # ← déjalo vacío hasta tener demo pública
+cover: "./cover.png"
+ogImage: "./og-platform-resumen.png"
+tags: ["IA", "Automatización", "Plataforma", "Menárguez-IA"]
+---
+
+# 🧠 Menárguez-IA Platform — Resumen
+
+Un **constructor de páginas con IA** (inspirado en emergent/bolt): el usuario describe la página en el chat y la plataforma:
+
+- Envía el prompt a **OpenAI**.
+- Recibe una **especificación JSON** fuerte (**PageSpec**).
+- Renderiza la página con un **renderer propio** manteniendo un diseño consistente.
+
+<div style={{margin:'1rem 0'}}>
+  <a
+    href="https://github.com/Nachomf112/menarguez-ia-platform-resumen"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center gap-2 rounded-lg px-5 py-3 bg-amber-400 text-black font-semibold shadow-sm hover:bg-amber-300 active:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+  >
+    Ver código en GitHub ↗
+  </a>
+</div>
+
+---
+
+## ✨ ¿Qué incluye ahora?
+
+- **JSON PageSpec + renderer determinista** → mismo look & feel para todas las landings.
+- **Secciones**: *hero*, *features*, *pricing* (precios en **EUR**), *testimonials*, *custom*.
+- **Flujo de reservas `/book`** preparado (envío de correo con **Resend**).
+- **CTA** que sale del iframe con `target="_top"` (cuando aplique).
+- **Identidad visual** Menárguez-IA (tema oscuro + acento).
+
+## 🔧 Pila
+
+- **Next.js 14 + TypeScript** (prototipo original).
+- **OpenAI API** (generación de PageSpec).
+- **Resend** (correo en reservas).
+- **Automatizaciones**: Make/Bash.
+
+## 🗺️ Roadmap inmediato
+
+- Terminar UX de **/book** (validaciones, mensajes bonitos).
+- Añadir secciones **FAQ**, **comparativas**, **timeline**.
+- **Histórico de versiones** (Supabase) y **exportar HTML**.
+- Ajuste fino de tipografías/colores a guía Menárguez-IA.

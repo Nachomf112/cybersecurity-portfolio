@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resumen — Menárguez-IA Platform</title>
+  <meta name="description" content="Resumen ejecutivo de la plataforma Menárguez-IA: módulos, arquitectura, roadmap y demos." />
+  <meta property="og:title" content="Resumen — Menárguez-IA Platform" />
+  <meta property="og:description" content="Módulos, arquitectura, roadmap y demos." />
+  <meta property="og:image" content="./og-platform-resumen.png" />
+  <meta name="theme-color" content="#111827">
+  <style>
+    body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;line-height:1.6}
+    .wrap{max-width:980px;margin:0 auto;padding:40px 20px}
+    h1{font-size:2.2rem;margin:.2rem 0 1rem}
+    h2{font-size:1.4rem;margin:2rem 0 .6rem}
+    p,li{color:#d1d5db}
+    .btn{display:inline-flex;gap:.5rem;align-items:center;background:#fbbf24;color:#111827;font-weight:700;border-radius:.75rem;padding:.8rem 1rem;text-decoration:none}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:16px}
+    .muted{color:#9ca3af}
+    footer{margin-top:40px;border-top:1px solid #1f2937;padding-top:16px;color:#9ca3af}
+    code{background:#111827;border:1px solid #1f2937;border-radius:6px;padding:.15rem .35rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="btn" href="/" style="margin-bottom:18px">← Volver al portfolio</a>
+    <h1>Resumen — Menárguez-IA Platform</h1>
+    <p class="muted">Visión general de módulos, arquitectura, demos y roadmap.</p>
+
+    <h2>⚙️ Módulos principales</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🔎 AML Suite</h3>
+        <p>Motor de análisis transaccional, reglas, visualización de redes, informes y KPIs de compliance.</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ Blue Team IA Coach</h3>
+        <p>CLI guiada para SOC junior: checklists, comandos y evidencias por alerta.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Nmap Auto + Reportes</h3>
+        <p>Escaneos predefinidos y reportes técnicos (HTML/PDF), con gráficos y dashboard histórico.</p>
+      </div>
+      <div class="card">
+        <h3>📈 AuthLog Auto Reporter</h3>
+        <p>Ingesta de logs de autenticación, detección de anomalías y reporte ejecutivo.</p>
+      </div>
+    </div>
+
+    <h2>🏗️ Arquitectura (resumen)</h2>
+    <ul>
+      <li>Backend: <b>Python + FastAPI</b>, tareas programadas y utilidades Bash.</li>
+      <li>Front/Reporting: <b>Streamlit</b> para dashboards rápidos y plantillas HTML → PDF.</li>
+      <li>Automatización: <b>Make</b> (antes Integromat), bots y notificaciones.</li>
+      <li>Distribución: contenedores y despliegue estático de informes.</li>
+    </ul>
+
+    <h2>🗺️ Roadmap corto</h2>
+    <ul>
+      <li>Exportación avanzada (CSV/JSON/PDF) uniforme.</li>
+      <li>Multi-idioma ES/EN y temas claro/oscuro por defecto.</li>
+      <li>KPIs centralizados con tablero común.</li>
+      <li>Integración de firmas YARA y Suricata.</li>
+    </ul>
+
+    <h2>🧪 Demos</h2>
+    <p>
+      Port Scanner (mobile-first): 
+      <a class="btn" href="/projects/port-scanner" target="_self">Ver proyecto ↗</a>
+    </p>
+
+    <footer>© Ignacio Menárguez · Menarguez-IA Solutions</footer>
+  </div>
+</body>
+</html>
