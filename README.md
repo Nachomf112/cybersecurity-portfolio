@@ -1,22 +1,33 @@
 # Ignacio Menárguez — Cybersecurity & IA Portfolio
 
-![Portfolio home](cover.png)
-
-Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y scripts de soporte para **Blue Team / SOC**.
+Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y **scripts de soporte para Blue Team / SOC**.
 
 La web está desplegada en Vercel y sirve como tarjeta de presentación técnica y demo de mis proyectos.
 
 ---
 
-## 🧩 Proyectos incluidos
+## 📸 Portfolio
 
-*(Resumen rápido; se corresponde con los MDX de `src/content/projects`)*
+![Ignacio Menárguez Portfolio](./cover.png)
+
+La landing principal del portfolio muestra:
+
+- Resumen rápido de mi perfil (Junior Cybersecurity Analyst | Blue Team | SOC | Forensics).
+- Métricas de experiencia y horas de formación en ciberseguridad.
+- Acceso directo a mi CV, LinkedIn y proyectos destacados.
+- Sección de proyectos con tarjetas individuales (cada una viene de un MDX en `src/content/projects`).
+
+---
+
+## 📂 Proyectos incluidos
+
+_(Resumen rápido; se corresponde con los MDX de `src/content/projects`.)_
 
 - **Menárguez-IA Platform — Generador de landings con IA**  
   Constructor de páginas de venta a partir de un chat → JSON (PageSpec) → renderer propio, con precios en EUR y flujo de reservas `/book` mediante correo (Resend).
 
 - **Port Scanner — Menárguez-IA Solutions**  
-  Port scanner *mobile-first* con perfiles de escaneo (quick, top1000, full), validación de autorización y registro de histórico.
+  Port scanner **mobile-first** con perfiles de escaneo (quick, top1000, full), validación de autorización y registro de histórico.
 
 - **Nmap Auto Reporter**  
   Script en Python que lanza escaneos Nmap y genera informes en Markdown listos para pegar en un ticket del SOC.
@@ -25,7 +36,7 @@ La web está desplegada en Vercel y sirve como tarjeta de presentación técnica
   Analiza ficheros `auth.log` (SSH/sudo/autenticación) y genera un informe con:
   - IPs con más intentos fallidos  
   - Usuarios más atacados  
-  - Logins aceptados
+  - Logins aceptados  
 
 - **Blue Team IA Coach**  
   Asistente CLI para analistas SOC junior con checklists, comandos frecuentes y recomendaciones de buenas prácticas.
@@ -39,7 +50,7 @@ La web está desplegada en Vercel y sirve como tarjeta de presentación técnica
 - **Menárguez-CTF-Lab**  
   Laboratorio personal para documentar retos de CTF y ejercicios prácticos de ciberseguridad.
 
-> Ajusta la lista si quieres, añadiendo o quitando proyectos según lo que tengas ahora mismo en `src/content/projects`.
+_Ajusto la lista si es necesario, añadiendo o quitando proyectos según lo que tenga en `src/content/projects`._
 
 ---
 
@@ -50,28 +61,19 @@ La web está desplegada en Vercel y sirve como tarjeta de presentación técnica
 - **Tailwind CSS** para el diseño (tema oscuro + acento amarillo).
 - Despliegue en **Vercel**.
 
-
-## 🗂️ Estructura rápida del repo
-
-```bash
-cybersecurity-portfolio/
-├─ public/                     # Imágenes públicas (favicon, og-image, etc.)
-├─ src/
-│  ├─ components/              # Componentes reutilizables del portfolio
-│  ├─ content/
-│  │  ├─ projects/             # Proyectos en formato MDX (cada tarjeta del portfolio)
-│  │  └─ blog/                 # Entradas del blog (si las añado)
-│  └─ layouts/                 # Layouts base para páginas
-├─ astro.config.mjs            # Configuración principal de Astro
-├─ package.json                # Dependencias y scripts (npm run dev, build, etc.)
-└─ README.md                   # Descripción del portfolio (este archivo)
-
 ---
 
-## ▶️ Cómo ejecutar el portfolio en local
+## 📁 Estructura rápida del repo
 
-```bash
-git clone https://github.com/Nachomf112/cybersecurity-portfolio.git
-cd cybersecurity-portfolio
-npm install
-npm run dev
+```text
+cybersecurity-portfolio/
+├─ public/                      # Imágenes públicas (favicon, og-image, etc.)
+├─ src/
+│  ├─ components/               # Componentes reutilizables del portfolio
+│  ├─ content/
+│  │  ├─ projects/              # Proyectos en formato MDX (cada tarjeta del portfolio)
+│  │  └─ blog/                  # Entradas del blog (si las añado)
+│  └─ layouts/                  # Layouts base para páginas
+├─ astro.config.mjs             # Configuración principal de Astro
+├─ package.json                 # Dependencias y scripts (npm run dev, build, etc.)
+└─ README.md                    # Descripción del portfolio (este archivo)
