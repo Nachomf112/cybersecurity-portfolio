@@ -1,0 +1,81 @@
+---
+title: "AuthLog Auto Reporter"
+author: "Ignacio Menárguez Fernández"
+publishDate: 2025-02-06
+description: "Herramienta en Python para analizar auth.log (SSH, sudo, autenticaciones) y generar un informe listo para tickets de SOC."
+cover:
+  src: "./authlog-auto.png"
+  alt: "Portada del proyecto AuthLog Auto Reporter"
+tags:
+  - linux
+  - logs
+  - ssh
+  - soc
+  - automatización
+---
+
+En este artículo presento **AuthLog Auto Reporter**, una herramienta en **Python** pensada para ayudar a un Blue Team o a un analista SOC a revisar de forma rápida los registros de autenticación de sistemas Linux.
+
+La idea es evitar tener que usar siempre comandos manuales (como `grep`, `awk`, `zgrep`, etc.) y disponer de un **informe repetible**, con secciones claras, que se pueda adjuntar a un ticket o compartir con el equipo.
+
+---
+
+## 🎯 Objetivo del proyecto
+
+En muchos ejercicios de laboratorio y en máquinas de práctica me encontraba siempre con el mismo problema:
+
+- Tardaba tiempo en localizar de un vistazo los **intentos fallidos** de login.
+- No tenía un resumen claro de **IPs más activas**, usuarios más atacados o comandos `sudo` ejecutados.
+- Cuando quería documentar lo que había encontrado, tenía que copiar y pegar a mano salidas de comandos.
+
+El objetivo de este proyecto fue crear un **flujo semi-automatizado** que:
+
+1. Lea el fichero `auth.log` (o sus rotaciones).
+2. Extraiga la información más interesante para un analista SOC.
+3. Genere un **informe en Markdown** listo para pegar en un ticket (Jira, GitHub, Redmine, etc.).
+
+---
+
+## 📊 Qué información extrae
+
+El script está pensado para generar, como mínimo, estas secciones:
+
+1. **Top IPs con intentos de login fallidos**  
+   Direcciones IP con más eventos `Failed password` o similares.
+
+2. **Usuarios más atacados**  
+   Cuentas que han recibido más intentos de autenticación fallidos.
+
+3. **Logins aceptados**  
+   Conexiones exitosas (por ejemplo `Accepted password`, `publickey`, etc.), útiles para comprobar accesos legítimos.
+
+4. **Uso de sudo / escaladas**  
+   Comandos ejecutados con `sudo`, quién los ha lanzado y desde qué terminal/host.
+
+5. **Eventos sospechosos adicionales**  
+   - Intentos desde IPs externas inusuales.  
+   - Accesos fuera de horario.  
+   - Usuarios de sistema que no deberían iniciar sesión.
+
+Cada sección se genera en formato Markdown para que sea fácil de leer y de pegar en un ticket.
+
+---
+
+## ⚙️ Flujo de trabajo
+
+El flujo típico sería:
+
+1. Copiar el fichero `auth.log` (o `auth.log.1`, archivos rotados, etc.) a una carpeta de trabajo.
+2. Ejecutar el script de Python indicando la ruta del log de entrada y la ruta del informe de salida.
+3. Revisar el informe generado, añadir comentarios manuales si hace falta y adjuntarlo al ticket del SOC.
+
+---
+
+## 🧪 Ejemplo de uso
+
+Un ejemplo de ejecución podría ser:
+
+```bash
+python3 authlog_auto_reporter.py \
+  --log /var/log/auth.log \
+  --output informes/2025-02-06-authlog-auto.md
