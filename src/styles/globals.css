@@ -1,58 +1,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
     :root {
-        --radius: 0.5rem
+        --radius: 0.5rem;
     }
 }
 
+/* El main ocupa todo el alto disponible */
 main {
     @apply flex-grow;
 }
 
-/* Base prose styling */
-/* Customize .prose directly */
+/* ================================
+   PROSE / CONTENIDO DE LOS POSTS
+   ================================ */
+/* La web es de fondo oscuro → usamos SIEMPRE colores claros
+   para que el texto sea legible independientemente del tema
+   del sistema operativo. */
+
 .prose {
-    color: theme('colors.n700');
-    --tw-prose-headings: theme('colors.n700');
-    --tw-prose-p: theme('colors.n700');
-    --tw-prose-a: theme('colors.primary-light');
-    --tw-prose-a-hover: theme('colors.primary-hover-light');
+    color: theme('colors.n200');
+    --tw-prose-headings: theme('colors.light-theme');
+    --tw-prose-p: theme('colors.light-theme');
+    --tw-prose-a: theme('colors.primary-dark');
+    --tw-prose-a-hover: theme('colors.primary-hover-dark');
     --tw-prose-blockquote: theme('colors.n500');
-    --tw-prose-figcaption: theme('colors.n500');
-    --tw-prose-strong: theme('colors.n700');
-    --tw-prose-code: theme('colors.n700');
-    --tw-prose-ol: theme('colors.n700');
-    --tw-prose-ul: theme('colors.n700');
+    --tw-prose-figcaption: theme('colors.light-theme');
+    --tw-prose-strong: theme('colors.light-theme');
+    --tw-prose-code: theme('colors.light-theme');
+    --tw-prose-ol: theme('colors.light-theme');
+    --tw-prose-ul: theme('colors.light-theme');
     --tw-prose-li-marker: theme('colors.n500');
-    --tw-prose-img: theme('colors.n700');
+    --tw-prose-img: theme('colors.light-theme');
     --tw-prose-hr: theme('colors.n500');
 }
 
-/* Dark mode customization */
-@media (prefers-color-scheme: dark) {
-    .prose {
-        color: theme('colors.n200');
-        --tw-prose-headings: theme('colors.light-theme');
-        --tw-prose-p: theme('colors.light-theme');
-        --tw-prose-a: theme('colors.primary-dark');
-        --tw-prose-a-hover: theme('colors.primary-hover-dark');
-        --tw-prose-blockquote: theme('colors.n500');
-        --tw-prose-figcaption: theme('colors.light-theme');
-        --tw-prose-strong: theme('colors.light-theme');
-        --tw-prose-code: theme('colors.light-theme');
-        --tw-prose-ol: theme('colors.light-theme');
-        --tw-prose-ul: theme('colors.light-theme');
-        --tw-prose-li-marker: theme('colors.n500');
-        --tw-prose-img: theme('colors.light-theme');
-        --tw-prose-hr: theme('colors.n500');
-    }
+/* Si hubiera algún contenedor de artículos extra */
+.blog-article {
+    color: theme('colors.n200');
 }
 
+.blog-article h1,
+.blog-article h2,
+.blog-article h3,
+.blog-article h4 {
+    color: theme('colors.light-theme');
+}
+
+.blog-article a {
+    color: theme('colors.primary-dark');
+    text-decoration: underline;
+}
+
+/* Imágenes dentro de prose redondeadas */
 .prose img {
     @apply rounded-2xl;
 }
+
+/* ================================
+   TABS PORTFOLIO / ABOUT
+   ================================ */
+
+.tabs-switch {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid #424657;
+    background: transparent;
+    color: theme('colors.n200');  /* texto claro en pestaña normal */
+    font-size: 0.9rem;
+}
+
+/* Pestaña activa con buen contraste: fondo claro + texto oscuro */
+.tab-active {
+    background: #ffffff;
+    color: #111827;
+    border-color: #ffffff;
+}
+
+/* ================================
+   ANIMACIONES ICONOS BOTONES
+   ================================ */
 
 /* Icon Animations */
 .cv-btn:hover .animate-slide-right {
@@ -62,6 +96,10 @@ main {
 .li-btn:hover .linkedin-anim {
     animation: linkedin 2s infinite both cubic-bezier(1, -.08, 0, 1.12);
 }
+
+/* ================================
+   BLOQUES DE CÓDIGO
+   ================================ */
 
 /* Code Block Styles */
 pre {
