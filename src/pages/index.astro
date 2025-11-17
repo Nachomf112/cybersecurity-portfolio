@@ -110,4 +110,32 @@ import AboutMeCC from "../components/AboutMeCC.astro";
       </div>
     </div>
   </section>
+
+  {/* CTA hacia el roadmap público en GitHub */}
+  <section class="mt-12">
+    <div
+      class="rounded-2xl border border-neutral-800 bg-neutral-900/60 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+    >
+      <div>
+        <h3 class="text-xs font-semibold tracking-wide text-yellow-300 uppercase mb-1">
+          Roadmap público en GitHub
+        </h3>
+        <p class="text-sm text-neutral-300 max-w-xl">
+          Sigo la evolución de este portfolio usando
+          <span class="font-semibold"> GitHub Issues</span>. Ahí puedes ver las tareas abiertas,
+          ideas y próximas mejoras en tiempo real.
+        </p>
+      </div>
+
+      <a
+        href="https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues"
+        class="inline-flex items-center justify-center rounded-full bg-yellow-400 px-5 py-2 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Ver roadmap en GitHub
+        <span class="ml-2">↗</span>
+      </a>
+    </div>
+  </section>
 </Layout>
