@@ -1,15 +1,20 @@
 ---
-title: "AuthLog Auto Reporter: detectar fuerza bruta SSH desde auth.log"
-pubDate: "2025-02-07"
-description: "Cómo uso mi script AuthLog Auto Reporter para ver IPs sospechosas, cuentas atacadas y logins correctos a partir de auth.log en Linux."
-tags:
-  - blue-team
-  - logs
-  - linux
-  - automation
-  - python
----
+title: "Automated Nmap Scan & Reporting Tool"
+author: "Ignacio Menárguez Fernández"
+description: "Bash-based tool that runs scheduled Nmap scans and generates reports for Blue Team investigations."
+publishDate: 2025-02-05
 
+image: ./authlog-auto.png
+cover:
+  src: ./authlog-auto.png
+  alt: "Analista revisando un informe de escaneos Nmap automatizados."
+
+tags:
+  - nmap
+  - bash
+  - linux
+  - automatización
+---
 En un entorno SOC es muy habitual revisar el fichero `auth.log` para investigar:
 
 - Intentos de fuerza bruta por SSH.  
