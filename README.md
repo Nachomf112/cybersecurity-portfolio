@@ -1,7 +1,7 @@
 # Ignacio Menárguez — Cybersecurity & IA Portfolio
 
-Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y **scripts de soporte para Blue Team / SOC**.  [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visitar-ffcc00?style=for-the-badge)](https://cybersecurity-portfolio-ashy.vercel.app)
-
+Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y **scripts de soporte para Blue Team / SOC**.  
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visitar-ffcc00?style=for-the-badge)](https://cybersecurity-portfolio-ashy.vercel.app)
 
 La web está desplegada en Vercel y sirve como tarjeta de presentación técnica y demo de mis proyectos.
 
@@ -64,17 +64,20 @@ _Ajusto la lista si es necesario, añadiendo o quitando proyectos según lo que 
 
 ---
 
-## 📁 Estructura rápida del repo
+## 🚀 Cómo probar el portfolio en local
 
-```text
-cybersecurity-portfolio/
-├─ public/                      # Imágenes públicas (favicon, og-image, etc.)
-├─ src/
-│  ├─ components/               # Componentes reutilizables del portfolio
-│  ├─ content/
-│  │  ├─ projects/              # Proyectos en formato MDX (cada tarjeta del portfolio)
-│  │  └─ blog/                  # Entradas del blog (si las añado)
-│  └─ layouts/                  # Layouts base para páginas
-├─ astro.config.mjs             # Configuración principal de Astro
-├─ package.json                 # Dependencias y scripts (npm run dev, build, etc.)
-└─ README.md                    # Descripción del portfolio (este archivo)
+Si quieres levantar el portfolio en tu máquina:
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Nachomf112/Cybersecurity-IA-Portfolio.git
+
+# 2. Entrar en la carpeta
+cd Cybersecurity-IA-Portfolio
+
+# 3. Instalar dependencias
+npm install
+
+# 4. Levantar el entorno de desarrollo
+npm run dev
+# Luego abre http://localhost:4321 en tu navegador
