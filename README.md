@@ -104,5 +104,5 @@ Voy usando los **GitHub Issues** como sistema de roadmap y lista de tareas:
 - 🧠 Menarguez-IA Solutions (automatización e IA): https://menarguez-ia.com
 
 Si estás buscando perfiles **Junior SOC / Blue Team / Ciberseguridad**,  
-puedes contactarme por LinkedIn o a través del formulario de mi portfolio.
+puedes contactarme por LinkedIn o a través del formulario de contacto de mi portfolio.
 ---
