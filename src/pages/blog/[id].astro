@@ -1,41 +1,91 @@
 ---
-import {getCollection, render} from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BackBtn from "../../components/BackBtn.astro";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import BackToTop from "../../components/BackToTop.astro";
 
-
 export async function getStaticPaths() {
-    const posts = await getCollection('posts');
-    return posts.map(post => ({
-        params: {id: post.id},
-        props: {post},
-    }));
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
 }
 
-const {post} = Astro.props;
-
-const {title, description, publishDate, tags, cover} = post.data;
-
-const {Content} = await render(post);
+const { post } = Astro.props;
+const { title, description, publishDate, tags, cover } = post.data;
+const { Content } = await render(post);
 ---
-<Layout title={title} description={description} imageOg={cover.src.src} scrollSmooth={true}>
-    <>
-        <div class="flex justify-center mt-10">
-            <BackBtn/>
-        </div>
-        <div class="flex flex-col gap-6 justify-center items-center">
-            <h1 class="text-3xl font-bold text-center">{title}</h1>
-            <p class="text-sm text-n500 dark:text-primary-light ">
-                {tags.join(', ')}
-            </p>
-        </div>
-        <Image transition:name={`${post.id}-image`} class="rounded-2xl h-[400px] object-cover" src={cover.src}
-               alt="Main project image"/>
-        <article id="article" class="mt-8 prose dark:prose-invert">
-            <Content/>
-        </article>
-        <BackToTop />
-    </>
+
+<Layout
+  title={title}
+  description={description}
+  imageOg={cover.src.src}
+  scrollSmooth={true}
+>
+  <>
+    <div class="flex justify-center mt-10">
+      <BackBtn />
+    </div>
+
+    <div class="flex flex-col gap-6 justify-center items-center mt-4">
+      <h1 class="text-3xl font-bold text-center">{title}</h1>
+      <p class="text-sm text-n500 dark:text-primary-light">
+        {tags.join(" · ")}
+      </p>
+    </div>
+
+    <Image
+      transition:name={`${post.id}-image`}
+      class="mt-8 rounded-2xl h-[400px] object-cover"
+      src={cover.src}
+      alt="Main project image"
+    />
+
+    <article
+      id="article"
+      class="mt-10 prose prose-invert text-gray-100 max-w-none"
+    >
+      <Content />
+    </article>
+
+    <BackToTop />
+  </>
 </Layout>
+
+<style>
+  /* Párrafos más legibles */
+  #article p {
+    line-height: 1.7;
+    margin-top: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Títulos dentro del contenido */
+  #article h2,
+  #article h3,
+  #article h4 {
+    margin-top: 2.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Separadores (--- en Markdown) con más aire */
+  #article hr {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-color: #4b5563;
+  }
+
+  /* Listas un poco más abiertas */
+  #article ul,
+  #article ol {
+    margin-top: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  #article li {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+</style>
