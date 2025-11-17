@@ -106,3 +106,17 @@ Voy usando los **GitHub Issues** como sistema de roadmap y lista de tareas:
 Si estás buscando perfiles **Junior SOC / Blue Team / Ciberseguridad**,  
 puedes contactarme por LinkedIn o a través del formulario de contacto de mi portfolio.
 ---
+---
+
+## 🇬🇧 Quick summary (EN)
+
+This repository contains my personal **Cybersecurity & AI portfolio**.  
+The website showcases:
+
+- Projects focused on **Blue Team / SOC**, network scanning and log analysis.
+- **Automation with Python, Bash and AI**, to speed up incident response and reporting.
+- A growing collection of tools like *Nmap Auto Reporter*, *AuthLog Auto Reporter* and AML / forensics experiments.
+- A modern portfolio UI built with **Astro + Tailwind CSS**, deployed on **Vercel**.
+
+If you’re hiring for **Junior SOC / Blue Team / Cybersecurity** roles, feel free to reach out via LinkedIn or the contact form on the portfolio site.
+---
