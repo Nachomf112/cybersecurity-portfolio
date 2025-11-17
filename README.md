@@ -96,3 +96,13 @@ Voy usando los **GitHub Issues** como sistema de roadmap y lista de tareas:
 
 > Si ves algo interesante o tienes feedback, puedes abrir un nuevo issue en el repositorio.
 ---
+
+## 🌐 Contacto & enlaces útiles
+
+- 🌍 Portfolio en producción: https://cybersecurity-portfolio-ashy.vercel.app
+- 💼 LinkedIn: https://www.linkedin.com/in/ignacio-menarguez-fernandez/
+- 🧠 Menarguez-IA Solutions (automatización e IA): https://menarguez-ia.com
+
+Si estás buscando perfiles **Junior SOC / Blue Team / Ciberseguridad**,  
+puedes contactarme por LinkedIn o a través del formulario de mi portfolio.
+---
